@@ -1,0 +1,40 @@
+<html>
+	<body>
+		<canvas id="canvas" width = 500 height = 500></canvas>
+		<script>
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+			
+			function drawCircle(x, y, rad){
+				ctx.beginPath();
+				ctx.moveTo(x, y);
+				ctx.arc(x, y, rad, rad, Math.PI*2, true);	
+				ctx.fill();
+				ctx.closePath();			
+			}
+			
+			var width = canvas.width;
+			var height = canvas.height;
+			
+			var x = width / 2;
+			var y = height / 2;
+			var velX = 6;
+			var velY = 4;
+
+			ctx.fillStyle = "red";
+			setInterval(draw, 33);
+			
+			function draw() {
+				ctx.clearRect(0, 0, width, height);
+				x += velX;
+				y += velY;
+				if (x < 0 || x > width)
+					velX = -velX;
+				if (y < 0 || y > height)
+					velY = -velY;
+				drawCircle(x, y, 25);
+			}
+			
+		</script>
+	</body>
+</html>
