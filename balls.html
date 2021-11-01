@@ -15,11 +15,12 @@
 			
 			var width = canvas.width;
 			var height = canvas.height;
-			
-			var x = width / 2;
+					
+                       var x = width / 2;
 			var y = height / 2;
 			var velX = 6;
 			var velY = 4;
+			var rad = 25;
 
 			ctx.fillStyle = "red";
 			setInterval(draw, 33);
@@ -28,11 +29,11 @@
 				ctx.clearRect(0, 0, width, height);
 				x += velX;
 				y += velY;
-				if (x < 0 || x > width)
+				if (x < rad || x > width-rad)
 					velX = -velX;
-				if (y < 0 || y > height)
+				if (y < rad || y > height-rad)
 					velY = -velY;
-				drawCircle(x, y, 25);
+				drawCircle(x, y, rad);
 			}
 			
 		</script>
