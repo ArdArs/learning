@@ -13,6 +13,11 @@
 				ctx.closePath();			
 			}
 			
+			
+			function clear(){
+				ctx.clearRect(0, 0, width, height);
+			}
+			
 			var width = canvas.width;
 			var height = canvas.height;
 					
@@ -26,12 +31,12 @@
 			setInterval(draw, 33);
 			
 			function draw() {
-				ctx.clearRect(0, 0, width, height);
+				clear();
 				x += velX;
 				y += velY;
-				if (x < rad || x > width-rad)
+				if (x <= rad || x >= width-rad)
 					velX = -velX;
-				if (y < rad || y > height-rad)
+				if (y <= rad || y >= height-rad)
 					velY = -velY;
 				drawCircle(x, y, rad);
 			}
